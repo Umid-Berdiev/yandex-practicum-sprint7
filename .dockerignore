@@ -1,0 +1,9 @@
+.git
+.venv
+.env
+models
+data
+faiss_index
+examples
+__pycache__
+*.pyc
