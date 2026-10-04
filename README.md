@@ -78,6 +78,7 @@ Oru-Kei Talvane [1].
 Ответ: Я не знаю. В базе знаний нет информации по этому вопросу.
 ```
 
+- [screenshots/](screenshots/) — десять скриншотов: пять ответов и пять «Я не знаю».
 - [examples/dialogues.md](examples/dialogues.md) — десять диалогов: пять ответов и пять отказов.
 - [examples/security_tests.md](examples/security_tests.md) — тесты промпт-инъекции при разных уровнях защиты.
 
@@ -97,6 +98,7 @@ Oru-Kei Talvane [1].
 | `terms_map.json` | Словарь замен: исходный термин → вымышленный |
 | `faiss_index/` | Готовый индекс и параметры его сборки |
 | `examples/` | Логи диалогов и тестов защиты |
+| `screenshots/` | Скриншоты работы бота |
 | `Dockerfile`, `docker-compose.yml` | Сборка и запуск в Docker |
 
 ## Настройки
