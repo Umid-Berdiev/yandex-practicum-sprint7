@@ -50,7 +50,7 @@ Aside from the blade of another arcblade, there were rare materials that could w
 
 ### Utility
 
-On the aquatic planet of Sel Dradan, the Veyari Kit Didrian, Edrik Vantreil and Ilyra Seshu were all able to use their arcblades underwater with no ill effects. Whilst in areas of low light, the glowing plasma blade could function as a convenient light source, demonstrated by Veyari Knight Edrik Vantreil, Veyari Masters Olvek and Oru-Kei Talvane, along with renegade Morkai Lord Brakk Zuhe.
+On the aquatic planet of Sel Dradan, the Veyari Naro Didrian, Edrik Vantreil and Ilyra Seshu were all able to use their arcblades underwater with no ill effects. Whilst in areas of low light, the glowing plasma blade could function as a convenient light source, demonstrated by Veyari Knight Edrik Vantreil, Veyari Masters Olvek and Oru-Kei Talvane, along with renegade Morkai Lord Brakk Zuhe.
 
 ### Components
 
@@ -70,7 +70,7 @@ Meanwhile, the Morkai made it a point to kill a Veyari so as to claim their arcb
 
 The sheer number of Veyari active during the days of the Galactic Concord naturally resulted in countless variations in the designs of arcblades. Some of these modifications were merely for the exterior looks of the saber, while others enhanced the sabers functionality in unique ways. While the traditional single bladed arcblade was the design most Veyari used, some preferred creative adaptation of this classic weapon.
 
-There also existed a type of pulser known as an arcblade rifle which was designed to be combined with an arcblade. To work, the user would insert a standard arcblade into a slot on top of the rifle. Once loaded, the weapon could fire powerful beams of energy that were highly destructive. Additionally, Veyari Masters Briagrax-Gredreil-Skabrom and Agen Skiagreim both owned an arcblade that had two different colored vethra crystals, allowing it to change colors from green to blue.
+There also existed a type of pulser known as an arcblade rifle which was designed to be combined with an arcblade. To work, the user would insert a standard arcblade into a slot on top of the rifle. Once loaded, the weapon could fire powerful beams of energy that were highly destructive. Additionally, Veyari Masters Briagrax-Gredreil-Skabrom and Soric Skiagreim both owned an arcblade that had two different colored vethra crystals, allowing it to change colors from green to blue.
 
 ### Purpose
 

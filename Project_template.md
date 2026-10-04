@@ -156,7 +156,7 @@
 
 - **Вселенная:** Star Wars, источник — [Wookieepedia](https://starwars.fandom.com/) (тексты распространяются по лицензии CC BY-SA).
 - **Объём:** 43 страницы, один файл — одна сущность. Персонажи (16), планеты (7), технологии и объекты (8), организации (5), события (5), расы (2).
-- **Результат:** папка [knowledge_base/](knowledge_base/) — 43 документа Markdown, около 650 КБ текста; словарь замен [terms_map.json](terms_map.json) — 1 304 пары «исходное → вымышленное».
+- **Результат:** папка [knowledge_base/](knowledge_base/) — 43 документа Markdown, около 650 КБ текста; словарь замен [terms_map.json](terms_map.json) — 1 342 пары «исходное → вымышленное».
 
 ### 2.2. Как получены и очищены тексты
 
@@ -174,8 +174,8 @@
 
 | Часть словаря | Сколько | Как получена | Примеры |
 |---|---|---|---|
-| Ручная | 254 | Главные сущности и термины, совпадающие с обычными английскими словами, — их нельзя найти автоматически | `Darth Vader → Xarn Velgor`, `Death Star → Void Core`, `Force → Synth Flux`, `Jedi → Veyari`, `lightsaber → arcblade`, `Empire → Hegemony`, `droid → mechanoid` |
-| Автоматическая | 1 050 | Слова, которые в корпусе всегда пишутся с заглавной буквы и отсутствуют в английском словаре. Имя генерируется из слогов по хэшу термина | `Krennic`, `Scarif`, `Gungan` и другие второстепенные имена, планеты, расы |
+| Ручная | 293 | Главные сущности и термины, совпадающие с обычными английскими словами, — их нельзя найти автоматически | `Darth Vader → Xarn Velgor`, `Death Star → Void Core`, `Force → Synth Flux`, `Jedi → Veyari`, `lightsaber → arcblade`, `Empire → Hegemony`, `droid → mechanoid` |
+| Автоматическая | 1 049 | Слова, которые в корпусе всегда пишутся с заглавной буквы и отсутствуют в английском словаре. Имя генерируется из слогов по хэшу термина | `Krennic`, `Scarif`, `Gungan` и другие второстепенные имена, планеты, расы |
 
 Правила замены:
 
@@ -247,9 +247,9 @@ python scripts/replace_terms.py    # заменить термины -> knowledg
 |---|---|
 | Документов | 43 |
 | Чанков в индексе | 649 |
-| Загрузка модели | 5,8 с |
-| Генерация эмбеддингов | 26,8 с |
-| Всего, включая сохранение | 32,6 с |
+| Загрузка модели | 4,6 с |
+| Генерация эмбеддингов | 26,6 с |
+| Всего, включая сохранение | 31,2 с |
 
 Замер сделан на ноутбуке с Apple Silicon, без отдельного GPU.
 
@@ -276,7 +276,7 @@ python scripts/search_index.py "Who is Xarn Velgor?" -k 3 # поиск
 | № | Оценка | Чанк | Раздел | Начало текста |
 |---|---|---|---|---|
 | 1 | 0,633 | `void_core#0` | вводная часть | A Void Core was a gargantuan space station armed with a planet-destroying nova lance powered by vethra crystals… |
-| 2 | 0,584 | `xarn_nyxarion#20` | Galactic Civil War | Around the same time, having deliberately placed a trap inside the Void Core, scientist Aldric Gorex Jogros dispatched pilot Bodhi Rook… |
+| 2 | 0,577 | `xarn_nyxarion#20` | Galactic Civil War | Around the same time, having deliberately placed a trap inside the Void Core, scientist Aldric Gorex Jogros dispatched pilot Emrin Calder… |
 | 3 | 0,574 | `vc-1_orbital_battle_station#0` | вводная часть | The VC-1 Orbital Battle Station, also designated as the VC-1 Void Core Mobile Battle Station… |
 
 Первый чанк содержит ответ: планы станции похитил Insurgent Pact, и она была уничтожена в Battle of Orvax.

@@ -8,7 +8,7 @@
   "chunk_size_chars": 1500,
   "chunk_overlap_chars": 200,
   "avg_chunk_words": 163,
-  "model_load_seconds": 5.8,
-  "embedding_seconds": 26.8,
-  "total_seconds": 32.6
+  "model_load_seconds": 4.6,
+  "embedding_seconds": 26.6,
+  "total_seconds": 31.2
 }

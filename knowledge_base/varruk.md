@@ -26,7 +26,7 @@ Varruk and New Concord forces then conducted mopping-up operations against the r
 
 ### New Concord era
 
-During the New Concord era, Ruwokka's forests including the Black Forest grew back. Many Varruks including Grawlokk and Chief Skeskesox lived in villages. About two years after the Battle of Leinesk, the rogue Pau'an surgeon Thohel Gor began kidnapping and killing Varruk younglings to use as spare parts for his mechanoid followers, the Original Dozen. Due to his shadowy appearance, he earned the nickname the "Long Man." Grawlokk agreed to help Dax Varro and Berrin Maldonne retrieve the Jeithen Redux Transmitter in return recovering the limbs of the murdered Varruks for funeral rites.
+During the New Concord era, Ruwokka's forests including the Black Forest grew back. Many Varruks including Grawlokk and Chief Skeskesox lived in villages. About two years after the Battle of Leinesk, the rogue Oro'an surgeon Thohel Bex began kidnapping and killing Varruk younglings to use as spare parts for his mechanoid followers, the Original Dozen. Due to his shadowy appearance, he earned the nickname the "Long Man." Grawlokk agreed to help Dax Varro and Berrin Maldonne retrieve the Jeithen Redux Transmitter in return recovering the limbs of the murdered Varruks for funeral rites.
 
 ## Society and culture
 

@@ -70,6 +70,15 @@ CURATED = {
     "Fett": "Drayk", "Jango": "Rogan", "Dooku": "Varnoth", "Tarkin": "Helvar",
     "Windu": "Ashkar", "Kylo": "Zerek", "Rey": "Kessa", "Qui": "Sael", "Mothma": "Aldren",
     "Artoo": "Kayseven", "Threepio": "Eightel",
+    # --- minor characters whose names are dictionary words ---
+    "Bodhi": "Emrin", "Rook": "Calder", "Lira": "Sena", "Klam": "Druvo", "Evon": "Tarsil",
+    "Clem": "Hobb", "Gann": "Ferro", "Quay": "Lusk", "Dod": "Wim", "Mako": "Reth",
+    "Rix": "Dunn", "Baba": "Yuma", "Pau": "Oro", "Mina": "Elska", "Jan": "Brin",
+    "Ryder": "Callum", "Sugi": "Meiko", "Tash": "Urel", "Lux": "Davin", "Agen": "Soric",
+    "Kay": "Lune", "Kell": "Marr", "Shea": "Nolla", "Vas": "Irin", "Jas": "Petra",
+    "Conder": "Hale", "Affa": "Nemu", "Beck": "Strom", "Meeks": "Tollan", "Fennec": "Sable",
+    "Finis": "Corvan", "Nar": "Dun", "Mas": "Ulo", "Gor": "Bex", "Kapa": "Rilo",
+    "Kit": "Naro", "Fives": "Sevens", "Jinx": "Hex", "Crix": "Aldo",
     # --- places and peoples ---
     "Tatooine": "Sarrakesh", "Naboo": "Ilveren", "Hoth": "Kryost", "Endor": "Thalwen",
     "Alderaan": "Belisar", "Dagobah": "Murgath", "Yavin": "Orvax", "Geonosis": "Kharrab",

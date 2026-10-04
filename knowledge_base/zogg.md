@@ -1,6 +1,6 @@
 # Zogg
 
-Zoggs were a large slug-like sentient species who were native to the planet Zhalias, but considered their homeworld to be Skushu Trenim after abandoning Zhalias due to the Shalovoth Kapa. While strongest in the Far Verge Territories, they dominated organized criminal activities across the galaxy, controlling the Zogg Clan crime syndicate. Speaking Zoggese, their social structure was divided into clans known as kajidics.
+Zoggs were a large slug-like sentient species who were native to the planet Zhalias, but considered their homeworld to be Skushu Trenim after abandoning Zhalias due to the Shalovoth Rilo. While strongest in the Far Verge Territories, they dominated organized criminal activities across the galaxy, controlling the Zogg Clan crime syndicate. Speaking Zoggese, their social structure was divided into clans known as kajidics.
 
 ## Biology and appearance
 
@@ -10,7 +10,7 @@ Zoggs possessed skeletons, and were not known for being healthy. Some Zoggs suff
 
 ### Organized crime
 
-The Zoggs originally hailed from the planet Zhalias, where they were hunted by the Shalovoth Kapa. In order to escape the Shalovoth Kapa, the Zoggs ultimately abandoned Zhalias and settled on the planet Skushu Trenim. For centuries, the Zoggs dominated much of the organized criminal activities in the galaxy. They dominated the Metiarn'leks of Nejes and the Viquu species for several centuries.
+The Zoggs originally hailed from the planet Zhalias, where they were hunted by the Shalovoth Rilo. In order to escape the Shalovoth Rilo, the Zoggs ultimately abandoned Zhalias and settled on the planet Skushu Trenim. For centuries, the Zoggs dominated much of the organized criminal activities in the galaxy. They dominated the Metiarn'leks of Nejes and the Viquu species for several centuries.
 
 The Zoggs approached Lord Pekrox of the Directorate, striking a deal with him to destabilize the local governments of Desern and E'ronoh to the advantage of their long-term plans for control of trade and mass enslavement. To that end, Pekrox instigated the Desern–E'ronoh crisis, but in actuality the Zoggs intended for the crisis to destroy the Directorate, allowing them to freely move their criminal operations into the region.
 
