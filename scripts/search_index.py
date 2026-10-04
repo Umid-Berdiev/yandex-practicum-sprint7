@@ -5,27 +5,17 @@ Usage: python scripts/search_index.py "Who is Xarn Velgor?" [-k 3]
 """
 
 import argparse
+import sys
 from pathlib import Path
 
-from langchain_community.vectorstores import FAISS
-from langchain_community.vectorstores.utils import DistanceStrategy
-
-from build_index import INDEX_DIR, get_embeddings
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from rag_bot.index import load_index  # noqa: E402
 
 EXAMPLE_QUERIES = [
     "Who destroyed the Void Core?",
     "What is an arcblade and how is it built?",
     "Кто обучал Корина Вантрейла использовать Synth Flux?",
 ]
-
-
-def load_index() -> FAISS:
-    return FAISS.load_local(
-        str(INDEX_DIR), get_embeddings(),
-        # index.pkl is our own file, produced by build_index.py.
-        allow_dangerous_deserialization=True,
-        distance_strategy=DistanceStrategy.MAX_INNER_PRODUCT,
-    )
 
 
 def main() -> None:

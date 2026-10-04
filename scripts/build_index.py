@@ -11,38 +11,25 @@ Usage: python scripts/build_index.py
 """
 
 import json
-import os
 import re
+import sys
 import time
 from pathlib import Path
 
 from langchain_community.vectorstores import FAISS
 from langchain_community.vectorstores.utils import DistanceStrategy
 from langchain_core.documents import Document
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-ROOT = Path(__file__).resolve().parent.parent
-KB_DIR = ROOT / "knowledge_base"
-INDEX_DIR = ROOT / "faiss_index"
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from rag_bot.config import EMBEDDING_MODEL, INDEX_DIR, KB_DIR  # noqa: E402
+from rag_bot.index import get_embeddings  # noqa: E402
 
-EMBEDDING_MODEL = "BAAI/bge-m3"
-# Local copy of the model (see README: downloaded once with curl). If the folder is
-# missing, the model is downloaded from the Hugging Face Hub by name.
-MODEL_DIR = Path(os.environ.get("EMBEDDING_MODEL_DIR", ROOT / "models" / "bge-m3"))
 # ~1500 characters is about 250 words: within the 100-300 words range.
 CHUNK_SIZE = 1500
 CHUNK_OVERLAP = 200
 # Split on section headings first, then paragraphs, sentences and words.
 SEPARATORS = ["\n## ", "\n### ", "\n\n", ". ", " ", ""]
-
-
-def get_embeddings() -> HuggingFaceEmbeddings:
-    # Normalized vectors + inner product = cosine similarity.
-    return HuggingFaceEmbeddings(
-        model_name=str(MODEL_DIR) if MODEL_DIR.exists() else EMBEDDING_MODEL,
-        encode_kwargs={"normalize_embeddings": True, "batch_size": 16},
-    )
 
 
 def section_at(text: str, position: int) -> str:
