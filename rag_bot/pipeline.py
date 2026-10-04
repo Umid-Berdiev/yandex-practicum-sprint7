@@ -2,6 +2,9 @@
 
 import re
 from dataclasses import dataclass, field, replace
+from urllib.parse import urlparse
+
+import httpx
 
 from langchain_openai import ChatOpenAI
 
@@ -32,8 +35,13 @@ class Answer:
 def get_llm() -> ChatOpenAI:
     if not config.LLM_MODEL:
         raise SystemExit("LLM_MODEL is not set: copy .env.example to .env and fill it in")
+    # A local LLM server must be reached directly: a system HTTP proxy (HTTP_PROXY)
+    # cannot connect to "localhost" and answers with its own error page.
+    host = urlparse(config.LLM_BASE_URL).hostname or ""
+    is_local = host in {"localhost", "127.0.0.1", "::1", "host.docker.internal"}
     return ChatOpenAI(
         model=config.LLM_MODEL, base_url=config.LLM_BASE_URL, api_key=config.LLM_API_KEY,
+        http_client=httpx.Client(trust_env=False) if is_local else None,
         temperature=config.LLM_TEMPERATURE, timeout=120,
         # The prompt already asks for explicit reasoning steps, so the hidden "thinking"
         # of reasoning models is switched off by default: it only slows the answer down.
