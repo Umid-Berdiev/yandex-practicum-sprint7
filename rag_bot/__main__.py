@@ -22,6 +22,8 @@ def print_answer(result: Answer, show_context: bool) -> None:
         for number, chunk in enumerate(result.chunks, 1):
             preview = " ".join(chunk.text.split())[:160]
             print(f"  [{number}] {chunk.score:.3f}  {chunk.chunk_id}: {preview}...")
+    if result.blocked:
+        print(f"\nФильтр безопасности отбросил фрагменты: {', '.join(c.chunk_id for c in result.blocked)}")
     if result.reasoning:
         print(f"\nРассуждение:\n{result.reasoning}")
     print(f"\nОтвет: {result.answer}")
@@ -44,7 +46,8 @@ def main() -> None:
         print_answer(bot.ask(" ".join(args.question)), args.show_context)
         return
 
-    print(f"RAG-бот. Модель: {config.LLM_MODEL}. Задайте вопрос или введите «выход».")
+    print(f"RAG-бот. Модель: {config.LLM_MODEL}. Защита: {bot.guards.describe()}.")
+    print("Задайте вопрос или введите «выход».")
     while True:
         try:
             question = input("Вы: ").strip()

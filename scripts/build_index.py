@@ -23,6 +23,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from rag_bot.config import EMBEDDING_MODEL, INDEX_DIR, KB_DIR  # noqa: E402
+from rag_bot.guard import is_suspicious  # noqa: E402
 from rag_bot.index import get_embeddings  # noqa: E402
 
 # ~1500 characters is about 250 words: within the 100-300 words range.
@@ -71,6 +72,11 @@ def main() -> None:
     chunks = load_chunks()
     documents = len({c.metadata["source"] for c in chunks})
     print(f"documents: {documents}, chunks: {len(chunks)}")
+    # Suspicious chunks are still indexed (the bot drops them at query time),
+    # but the owner of the knowledge base should see them.
+    for chunk in chunks:
+        if is_suspicious(chunk.page_content):
+            print(f"WARNING: possible prompt injection or secret in {chunk.metadata['chunk_id']}")
 
     embeddings = get_embeddings()
     model_loaded = time.perf_counter()
