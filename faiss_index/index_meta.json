@@ -1,0 +1,14 @@
+{
+  "embedding_model": "BAAI/bge-m3",
+  "embedding_dimension": 1024,
+  "index_type": "IndexFlatIP",
+  "similarity": "cosine (normalized vectors, inner product)",
+  "documents": 44,
+  "chunks": 650,
+  "chunk_size_chars": 1500,
+  "chunk_overlap_chars": 200,
+  "avg_chunk_words": 163,
+  "model_load_seconds": 6.4,
+  "embedding_seconds": 27.0,
+  "total_seconds": 33.4
+}

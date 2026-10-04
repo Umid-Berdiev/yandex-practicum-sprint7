@@ -1,0 +1,39 @@
+# RAG bot + FAISS index.
+#
+# FAISS is a library, not a server: the index lives in the ./faiss_index volume and is
+# loaded into the bot process. The LLM runs outside the container - by default in Ollama
+# on the host machine. LLM_API_KEY and LLM_MODEL are taken from .env; the address is set
+# separately with DOCKER_LLM_BASE_URL, because "localhost" from .env would point to the
+# container itself.
+#
+#   docker compose build
+#   docker compose run --rm bot                          # interactive dialogue
+#   docker compose run --rm bot "Who is Xarn Velgor?"    # one question
+#   docker compose run --rm indexer                      # rebuild the index
+
+x-bot: &bot
+  build: .
+  image: rag-bot
+  environment:
+    LLM_BASE_URL: ${DOCKER_LLM_BASE_URL:-http://host.docker.internal:11434/v1}
+    LLM_API_KEY: ${LLM_API_KEY:-not-needed-for-local-llm}
+    LLM_MODEL: ${LLM_MODEL:-qwen3:8b}
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+
+services:
+  bot:
+    <<: *bot
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./faiss_index:/app/faiss_index:ro
+      - ./models:/app/models:ro
+
+  indexer:
+    <<: *bot
+    profiles: ["tools"]
+    entrypoint: ["python", "scripts/build_index.py"]
+    volumes:
+      - ./faiss_index:/app/faiss_index
+      - ./models:/app/models:ro
