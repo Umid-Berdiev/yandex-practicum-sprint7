@@ -189,6 +189,7 @@
 
 - Скрипт сам ищет в готовых текстах любой исходный термин из словаря — осталось 0 вхождений.
 - Поиск по словам `Star`, `Lucas`, `Disney`, `Episode`, `film` в базе знаний ничего не находит.
+- Артикли согласованы с новыми словами: `a lightsaber → an arcblade`.
 - Выборочное чтение: тексты остались связными, например «Princess Mirae Tessaly of Belisar… was apprehended by Xarn Velgor, but not before having hidden the plans in her navimech K7-M4».
 
 ### 2.4. Ограничения
@@ -202,3 +203,102 @@
 python scripts/download_pages.py   # скачать и очистить страницы -> data/raw/
 python scripts/replace_terms.py    # заменить термины -> knowledge_base/, terms_map.json
 ```
+
+---
+
+## Задание 3. Создание векторного индекса базы знаний
+
+### 3.1. Модель эмбеддингов
+
+| | |
+|---|---|
+| **Модель** | `BAAI/bge-m3` — выбрана в Задании 1 |
+| **Репозиторий** | https://huggingface.co/BAAI/bge-m3 |
+| **Размер эмбеддинга** | 1024 |
+| **Максимальная длина входа** | 8 192 токена |
+| **Где работает** | Локально, через `sentence-transformers` (обёртка `HuggingFaceEmbeddings` из LangChain). LLM при индексации не используется |
+| **Почему она** | Многоязычная: на вопрос по-русски находит фрагменты англоязычной базы. Тексты не покидают машину |
+
+### 3.2. База знаний и разбиение на чанки
+
+- **База знаний:** [knowledge_base/](knowledge_base/) из Задания 2 — 43 документа Markdown.
+- **Разбиение:** `RecursiveCharacterTextSplitter`, размер чанка 1 500 символов, перекрытие 200. Средний чанк — 163 слова, что укладывается в требуемые 100–300 слов.
+- **Порядок разделителей:** заголовки разделов (`##`, `###`) → абзацы → предложения → слова. Так чанк по возможности совпадает с логической частью статьи.
+- **Название статьи добавляется к тексту чанка перед векторизацией.** Фрагмент из середины статьи часто не называет сущность, о которой идёт речь; с заголовком поиск находит его по имени сущности. В самом индексе хранится исходный текст чанка без этой добавки.
+
+Метаданные каждого чанка (нужны боту для цитирования):
+
+| Поле | Пример | Назначение |
+|---|---|---|
+| `source` | `knowledge_base/arcblade.md` | Путь к файлу |
+| `title` | `Arcblade` | Заголовок документа |
+| `section` | `Construction process` | Раздел, в который попадает чанк |
+| `chunk_id` | `arcblade#12` | Уникальный идентификатор, он же id в FAISS |
+| `chunk_number` | `12` | Порядковый номер чанка в документе |
+| `start_index`, `end_index` | `12274`, `13376` | Позиция чанка в файле в символах |
+
+### 3.3. Индекс
+
+- **Векторная БД:** FAISS, тип индекса `IndexFlatIP` — точный поиск без потерь.
+- **Мера близости:** косинусная (векторы нормализованы, поэтому скалярное произведение равно косинусу). Чем выше оценка, тем ближе фрагмент к запросу.
+- **Файлы** в [faiss_index/](faiss_index/): `index.faiss` (векторы, 2,7 МБ), `index.pkl` (тексты и метаданные, 0,7 МБ), `index_meta.json` (параметры и время сборки).
+
+| Показатель | Значение |
+|---|---|
+| Документов | 43 |
+| Чанков в индексе | 649 |
+| Загрузка модели | 5,8 с |
+| Генерация эмбеддингов | 26,8 с |
+| Всего, включая сохранение | 32,6 с |
+
+Замер сделан на ноутбуке с Apple Silicon, без отдельного GPU.
+
+### 3.4. Код
+
+- [scripts/build_index.py](scripts/build_index.py) — разбиение, эмбеддинги, создание и сохранение индекса.
+- [scripts/search_index.py](scripts/search_index.py) — поиск по индексу.
+- [scripts/download_model.sh](scripts/download_model.sh) — загрузка модели в `models/bge-m3` (2,3 ГБ, в репозитории не хранится).
+
+```bash
+sh scripts/download_model.sh                              # один раз
+python scripts/build_index.py                             # построить индекс
+python scripts/search_index.py "Who is Xarn Velgor?" -k 3 # поиск
+```
+
+Модель скачивается через `curl`, а не через клиент Hugging Face: в корпоративной сети с подменой TLS-сертификатов Python-клиент не проходит проверку сертификата, а `curl` использует системное хранилище сертификатов. Если папки `models/bge-m3` нет, скрипт загрузит модель с Hugging Face Hub по имени.
+
+### 3.5. Примеры запросов к индексу
+
+Вывод `python scripts/search_index.py` (три лучших чанка на запрос, текст сокращён).
+
+**Запрос 1: «Who destroyed the Void Core?»**
+
+| № | Оценка | Чанк | Раздел | Начало текста |
+|---|---|---|---|---|
+| 1 | 0,633 | `void_core#0` | вводная часть | A Void Core was a gargantuan space station armed with a planet-destroying nova lance powered by vethra crystals… |
+| 2 | 0,584 | `xarn_nyxarion#20` | Galactic Civil War | Around the same time, having deliberately placed a trap inside the Void Core, scientist Aldric Gorex Jogros dispatched pilot Bodhi Rook… |
+| 3 | 0,574 | `vc-1_orbital_battle_station#0` | вводная часть | The VC-1 Orbital Battle Station, also designated as the VC-1 Void Core Mobile Battle Station… |
+
+Первый чанк содержит ответ: планы станции похитил Insurgent Pact, и она была уничтожена в Battle of Orvax.
+
+**Запрос 2: «What is an arcblade and how is it built?»**
+
+| № | Оценка | Чанк | Раздел | Начало текста |
+|---|---|---|---|---|
+| 1 | 0,648 | `arcblade#10` | Components | An arcblade was built up from several different components: blade emitter, focusing lens, cycling field energizers, main hilt, vethra crystal… |
+| 2 | 0,635 | `arcblade#7` | Components | An arcblade drew power from an appropriately-sized power cell… |
+| 3 | 0,628 | `arcblade#12` | Construction process | Under typical Veyari tradition, the construction of an arcblade began on the planet of Gokas… |
+
+Все три чанка — из нужной статьи, из разделов об устройстве и сборке.
+
+**Запрос 3 (на русском): «Кто обучал Корина Вантрейла использовать Synth Flux?»**
+
+| № | Оценка | Чанк | Раздел | Начало текста |
+|---|---|---|---|---|
+| 1 | 0,613 | `corin_vantreil#1` | вводная часть | The son of Veyari Knight Edrik Vantreil and Senator Naira Corvelle, Corin Vantreil was born along with his twin sister, Mirae, in 19 BVC… |
+| 2 | 0,592 | `corin_vantreil#4` | вводная часть | By 15 AVC, Vantreil had taken on Tov Varro, his sister's son… as an apprentice… |
+| 3 | 0,590 | `the_synth_flux#14` | Legacy of the Synth Flux | Although the Veyari prophecy foretold that the Chosen One would herald the destruction of the Morkai… |
+
+Первый чанк содержит ответ: «…began learning the ways of the Synth Flux under the guidance of Veyari Master Oru-Kei Talvane». Русский запрос с именем в кириллице нашёл англоязычный фрагмент — многоязычная модель работает как задумано.
+
+**Вывод по качеству.** Во всех трёх запросах чанк с ответом оказался на первом месте. Оценки релевантных чанков — 0,57–0,65; этот диапазон пригодится в следующих заданиях, чтобы подобрать порог, ниже которого бот отвечает «Я не знаю».

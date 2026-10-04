@@ -26,7 +26,7 @@ At some point during the Replica Wars, Belisar hosted a conference concerned wit
 
 The Belisar Trade Pact was an organization active during the Hegemonic Era. In 3 BVC, Mirae Tessaly took part in her Day of Demand and after completing her three challenges became invested as crown princess and the future queen of Belisar.
 
-With the Replica Wars coming to an end, Chancellor Malverin had abolished the Concord, establishing the Galactic Hegemony in its stead. However, a small number of systems rebelled against this new regime, and the Pact to Restore the Concord was ultimately formed by Dorn Tessaly and his former colleague in the Galactic Senate, Senator Sel Aldren of Breidenoth. During this time, Belisar became the Pact's main source of munitions. The planet's crown princess and representative in the Hegemonic Senate, Princess Mirae Tessaly, began using her diplomatic immunity as an Hegemonic senator to carry out Insurgent missions in restricted Hegemonic systems.
+With the Replica Wars coming to an end, Chancellor Malverin had abolished the Concord, establishing the Galactic Hegemony in its stead. However, a small number of systems rebelled against this new regime, and the Pact to Restore the Concord was ultimately formed by Dorn Tessaly and his former colleague in the Galactic Senate, Senator Sel Aldren of Breidenoth. During this time, Belisar became the Pact's main source of munitions. The planet's crown princess and representative in the Hegemonic Senate, Princess Mirae Tessaly, began using her diplomatic immunity as a Hegemonic senator to carry out Insurgent missions in restricted Hegemonic systems.
 
 ### Destruction
 

@@ -215,6 +215,18 @@ def compile_pattern(terms) -> re.Pattern:
     return re.compile(rf"(?<!\w)(?:{alternatives})(?!\w)")
 
 
+def fix_articles(text: str, terms: dict[str, str]) -> str:
+    """Make "a"/"an" agree with the invented word: "a lightsaber" -> "an arcblade"."""
+    names = "|".join(re.escape(n) for n in sorted(set(terms.values()), key=len, reverse=True))
+    pattern = re.compile(rf"\b([Aa])n? (?=({names})(?!\w))")
+
+    def fix(match: re.Match) -> str:
+        starts_with_vowel = match.group(2)[0].lower() in "aeio"
+        return match.group(1) + ("n " if starts_with_vowel else " ")
+
+    return pattern.sub(fix, text)
+
+
 def slugify(title: str) -> str:
     return re.sub(r"[^\w-]+", "_", title).strip("_").lower()
 
@@ -234,6 +246,7 @@ def main() -> None:
     leftovers = Counter()
     for text in documents.values():
         new_text, count = pattern.subn(lambda m: terms[m.group(0)], text)
+        new_text = fix_articles(new_text, terms)
         replaced += count
         leftovers.update(pattern.findall(new_text))
         title = new_text.splitlines()[0].lstrip("# ").strip()

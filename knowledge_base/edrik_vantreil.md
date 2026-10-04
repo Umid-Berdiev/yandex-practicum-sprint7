@@ -18,7 +18,7 @@ Even at a young age, Vantreil exhibited exceptional piloting skills, and built t
 
 ### Discovery
 
-One day, at the age of 9, Queipa shouted for him to come inside the junk shop, to find a tall man, a young woman, a Heihis, and an navimech mechanoid, conversing with Queipa. Vantreil had first seen the young woman, Naira Draquezian, when he looked up from his work, mistaking her for an angel, a species he had overheard spacers talk about, from the moons of Skemoth. Unknown to Vantreil, Draquezian was in fact Naira Corvelle, the Monarch of Ilveren, who had switched places with one of her Royal Handmaidens, to visit Sarrakesh.
+One day, at the age of 9, Queipa shouted for him to come inside the junk shop, to find a tall man, a young woman, a Heihis, and a navimech mechanoid, conversing with Queipa. Vantreil had first seen the young woman, Naira Draquezian, when he looked up from his work, mistaking her for an angel, a species he had overheard spacers talk about, from the moons of Skemoth. Unknown to Vantreil, Draquezian was in fact Naira Corvelle, the Monarch of Ilveren, who had switched places with one of her Royal Handmaidens, to visit Sarrakesh.
 
 At Queipa's instructions, Vantreil manned the shop while Queipa took the man, Sael-Rhal Ormis, into the junkyard. Vantreil was fascinated by the beauty of Naira, so much that he asked her if she was an angel. Shortly after Queipa and Ormis returned to the shop, Ormis informed his companions that they were leaving.
 

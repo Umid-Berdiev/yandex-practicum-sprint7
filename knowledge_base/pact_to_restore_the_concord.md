@@ -36,7 +36,7 @@ Corin, who was promoted to Commander by Aldren, led Rogue Squadron of snowspeede
 
 ### Founding a New Concord
 
-In the days following the Battle of Thalwen, news of the Hegemon's death spread to several worlds across the galaxy including Sarrakesh, Ilveren, Velmora, and Velaris despite many attempts by the Hegemony to conceal the fact and declare this information to be false. While there was much celebration, a riot broke out at Velaris's Monument Plaza. With the Hegemony in turmoil, the Insurgent Pact launched an assault on an Hegemonic outpost on the far side of Thalwen. This attack was led by General Varro and uncovered a lot of data and communications on Hegemonic plans.
+In the days following the Battle of Thalwen, news of the Hegemon's death spread to several worlds across the galaxy including Sarrakesh, Ilveren, Velmora, and Velaris despite many attempts by the Hegemony to conceal the fact and declare this information to be false. While there was much celebration, a riot broke out at Velaris's Monument Plaza. With the Hegemony in turmoil, the Insurgent Pact launched an assault on a Hegemonic outpost on the far side of Thalwen. This attack was led by General Varro and uncovered a lot of data and communications on Hegemonic plans.
 
 The Insurgent Pact was eventually reorganized into the New Concord. The new government, however, still had to contend with Hegemonic holdouts. But luckily, the Hegemon's contingency plan had the Hegemony thrown into chaos with Operation: Cinder turning them on their loyal planets.
 

@@ -50,7 +50,7 @@ Unfortunately, their freighter was boarded by two notorious criminal factions, t
 
 ### Adventures after the Battle of Jozeis
 
-During the Defiance's time on Rokroth, Grawlokk piloted the Meridian Kestrel to save Kessa after she provoked an attack by an Rokrothian pit beast. He then piloted the Kestrel to go to Sel Dradan and get help from its inhabitants.
+During the Defiance's time on Rokroth, Grawlokk piloted the Meridian Kestrel to save Kessa after she provoked an attack by a Rokrothian pit beast. He then piloted the Kestrel to go to Sel Dradan and get help from its inhabitants.
 
 ### Prime Mandate-Defiance War
 

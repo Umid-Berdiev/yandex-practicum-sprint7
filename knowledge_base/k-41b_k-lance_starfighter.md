@@ -30,7 +30,7 @@ Ironically, the Guton Corporation had first designed the K-lance for use by the 
 
 ### Galactic Civil War
 
-Several T-65Bs were kept at the Pact's hidden fortress on Orvax 4. K-lances were used alongside J-lances in the Battle of Quubem, aiding the insurgent fleet above the planet to help Stray One steal the Void Core plans. During the Battle of Orvax, Corin Vantreil was assigned to an K-lance for the battle, the goal of which was to destroy the Hegemony's approaching Void Core. Although many of the K-lance pilots were killed, Vantreil was able to launch his proton torpedoes into the battlestation's exhaust port, causing a chain reaction and destroying it. Tobin Thoneskias was the only other K-lance pilot who survived.
+Several T-65Bs were kept at the Pact's hidden fortress on Orvax 4. K-lances were used alongside J-lances in the Battle of Quubem, aiding the insurgent fleet above the planet to help Stray One steal the Void Core plans. During the Battle of Orvax, Corin Vantreil was assigned to a K-lance for the battle, the goal of which was to destroy the Hegemony's approaching Void Core. Although many of the K-lance pilots were killed, Vantreil was able to launch his proton torpedoes into the battlestation's exhaust port, causing a chain reaction and destroying it. Tobin Thoneskias was the only other K-lance pilot who survived.
 
 Aside from the Insurgent Pact, the Partisans, a loosely-affiliated group led by Dorrak Dreihix, utilized the K-lances as well, although they were given extensive paint jobs matching their organization, with several of them being used by the Cavern Angels, as well as Kianosk.
 
